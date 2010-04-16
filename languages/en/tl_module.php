@@ -27,18 +27,7 @@
 
 
 /**
- * Palettes
- */
-$GLOBALS['TL_DCA']['tl_module']['palettes']['pageheadline'] = '{title_legend},name,headline,type;{config_legend},inheritPageHeadline;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space';
-
-
-/**
  * Fields
  */
-$GLOBALS['TL_DCA']['tl_module']['fields']['inheritPageHeadline'] = array
-(
-	'label'			=> &$GLOBALS['TL_LANG']['tl_module']['inheritPageHeadline'],
-	'inputType'		=> 'checkbox',
-	'eval'			=> array('tl_class'=>'w50'),
-);
+$GLOBALS['TL_LANG']['tl_module']['inheritPageHeadline'] = array('Use parent headline', 'Use headline of the parent page if there\'s no headline for the currently active page.');
 
