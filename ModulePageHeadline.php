@@ -59,6 +59,8 @@ class ModulePageHeadline extends Module
 	{
 		global $objPage;
 		
+		$this->Template->headline = strlen($objPage->pageTitle) ? $objPage->pageTitle : $objPage->title;
+		
 		// Current page has an image
 		if (strlen($objPage->pageHeadline))
 		{
@@ -73,7 +75,7 @@ class ModulePageHeadline extends Module
 			{
 				if (strlen($objTrail->pageHeadline))
 				{
-					$this->Template->headline = $objPage->pageHeadline;
+					$this->Template->headline = $objTrail->pageHeadline;
 					
 					return;
 				}
