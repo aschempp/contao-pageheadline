@@ -39,6 +39,6 @@ $GLOBALS['TL_DCA']['tl_page']['fields']['pageHeadline'] = array
 (
 	'label'			=> &$GLOBALS['TL_LANG']['tl_page']['pageHeadline'],
 	'inputType'		=> 'text',
-	'eval'			=> array('maxlenght'=>255, 'tl_class'=>'long'),
+	'eval'			=> array('maxlenght'=>255, 'allowHtml'=>true, 'tl_class'=>'long'),
 );
 

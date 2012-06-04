@@ -41,7 +41,7 @@ class ModulePageHeadline extends Module
 			$objTemplate->title = $this->headline;
 			$objTemplate->id = $this->id;
 			$objTemplate->link = $this->name;
-			$objTemplate->href = 'typolight/main.php?do=modules&act=edit&id=' . $this->id;
+			$objTemplate->href = 'contao/main.php?do=modules&act=edit&id=' . $this->id;
 
 			return $objTemplate->parse();
 		}
@@ -61,7 +61,7 @@ class ModulePageHeadline extends Module
 		
 		$this->Template->headline = strlen($objPage->pageTitle) ? $objPage->pageTitle : $objPage->title;
 		
-		// Current page has an image
+		// Current page has a headline
 		if (strlen($objPage->pageHeadline))
 		{
 			$this->Template->headline = $objPage->pageHeadline;
