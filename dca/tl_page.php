@@ -13,7 +13,7 @@
 /**
  * Palettes
  */
-$GLOBALS['TL_DCA']['tl_page']['palettes']['regular'] = str_replace('pageTitle', 'pageTitle,pageHeadline', $GLOBALS['TL_DCA']['tl_page']['palettes']['regular']);
+$GLOBALS['TL_DCA']['tl_page']['palettes']['regular'] = str_replace('description', 'pageHeadline,description', $GLOBALS['TL_DCA']['tl_page']['palettes']['regular']);
 
 /**
  * Fields
@@ -22,5 +22,5 @@ $GLOBALS['TL_DCA']['tl_page']['fields']['pageHeadline'] = array
 (
 	'label'			=> &$GLOBALS['TL_LANG']['tl_page']['pageHeadline'],
 	'inputType'		=> 'text',
-	'eval'			=> array('maxlenght'=>255, 'allowHtml'=>true, 'tl_class'=>'long'),
+	'eval'			=> array('maxlenght'=>255, 'allowHtml'=>true, 'tl_class'=>'clr long'),
 );
