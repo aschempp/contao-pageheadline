@@ -7,9 +7,9 @@
 -- *                                                        *
 -- **********************************************************
 
--- 
+--
 -- Table `tl_page`
--- 
+--
 
 CREATE TABLE `tl_page` (
   `pageHeadline` varchar(255) NOT NULL default '',
@@ -18,9 +18,9 @@ CREATE TABLE `tl_page` (
 
 -- --------------------------------------------------------
 
--- 
+--
 -- Table `tl_module`
--- 
+--
 
 CREATE TABLE `tl_module` (
   `inheritPageHeadline` char(1) NOT NULL default '',

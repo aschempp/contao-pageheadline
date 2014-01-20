@@ -1,36 +1,20 @@
-<?php if (!defined('TL_ROOT')) die('You can not access this file directly!');
+<?php
 
 /**
- * TYPOlight Open Source CMS
- * Copyright (C) 2005-2010 Leo Feyer
+ * pageheadline Extension for Contao Open Source CMS
  *
- * This program is free software: you can redistribute it and/or
- * modify it under the terms of the GNU Lesser General Public
- * License as published by the Free Software Foundation, either
- * version 3 of the License, or (at your option) any later version.
- * 
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
- * Lesser General Public License for more details.
- * 
- * You should have received a copy of the GNU Lesser General Public
- * License along with this program. If not, please visit the Free
- * Software Foundation website at <http://www.gnu.org/licenses/>.
- *
- * PHP version 5
- * @copyright  Andreas Schempp 2009-2010
- * @author     Andreas Schempp <andreas@schempp.ch>
- * @license    http://opensource.org/licenses/lgpl-3.0.html
- * @version    $Id$
+ * @copyright  Copyright (c) 2009-2013, terminal42 gmbh
+ * @author     terminal42 gmbh <info@terminal42.ch>
+ * @license    http://opensource.org/licenses/lgpl-3.0.html LGPL
+ * @link       http://github.com/aschempp/contao-pageheadline
  */
 
 
 class ModulePageHeadline extends Module
 {
 	protected $strTemplate = 'mod_pageheadline';
-	
-	
+
+
 	public function generate()
 	{
 		if (TL_MODE == 'BE')
@@ -47,20 +31,20 @@ class ModulePageHeadline extends Module
 		}
 
 		$strBuffer = parent::generate();
-		
+
 		if (!strlen($this->Template->headline))
 			return '';
-			
+
 		return $strBuffer;
 	}
-	
-	
+
+
 	protected function compile()
 	{
 		global $objPage;
-		
+
 		$this->Template->headline = strlen($objPage->pageTitle) ? $objPage->pageTitle : $objPage->title;
-		
+
 		// Current page has a headline
 		if (strlen($objPage->pageHeadline))
 		{
@@ -70,17 +54,16 @@ class ModulePageHeadline extends Module
 		elseif ($this->inheritPageHeadline && count($objPage->trail))
 		{
 			$objTrail = $this->Database->execute("SELECT * FROM tl_page WHERE id IN (" . implode(',', $objPage->trail) . ") ORDER BY id=" . implode(' DESC, id=', array_reverse($objPage->trail)) . " DESC");
-			
+
 			while( $objTrail->next() )
 			{
 				if (strlen($objTrail->pageHeadline))
 				{
 					$this->Template->headline = $objTrail->pageHeadline;
-					
+
 					return;
 				}
 			}
 		}
 	}
 }
-
